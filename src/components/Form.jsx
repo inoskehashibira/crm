@@ -1,0 +1,95 @@
+import { React, useState, useContext } from "react";
+import { useForm } from "react-hook-form";
+import "../CSS/form.css";
+
+
+const Customer = (props) => {
+
+
+//   console.log(data);
+
+ 
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+
+   
+  };
+
+  return (
+    <div>
+      <div className="container">
+        <form className="form" onSubmit={handleSubmit(onSubmit)}>
+          <div className="heading">
+            <h1>Delivery Details</h1>
+          </div>
+
+          <div className="inputs text-start">
+            <div className="label">
+              <div className="heading">
+                <label className="fieldlabels">Name</label>
+              </div>
+
+              <input
+                type={"text"}
+                {...register("name")}
+                placeholder="Enter customer name please"
+                maxLength={32}
+              />
+            </div>
+
+            <div className="label">
+              <div className="heading">
+                <label className="fieldlabels">Phone</label>
+              </div>
+
+              <input
+                type={"text"}
+                defaultValue={"+88"}
+                {...register("number")}
+                placeholder="Type your Phone no here"
+                maxLength={11}
+              />
+            </div>
+
+            <div className="label">
+              <div className="heading">
+                <label className="fieldlabels">Email</label>
+              </div>
+
+              <input
+                type={"email"}
+                {...register("email", { required: true })}
+                placeholder="Enter a valid mail address"
+              />
+              {errors.exampleRequired && <span>This field is required</span>}
+            </div>
+
+            <div className="label">
+              <div className="heading">
+                <label className="fieldlabels">Delivery Address</label>
+              </div>
+
+              <input
+                className="address"
+                type={"text"}
+                {...register("address")}
+                placeholder="Enter delivery address here"
+              />
+            </div>
+          </div>
+
+          <input className="button" type="submit" />
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default Customer;
