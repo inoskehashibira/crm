@@ -1,6 +1,6 @@
 import { React, useState, useContext } from "react";
 import { useForm } from "react-hook-form";
-import "../../CSS/form.css";
+// import "../../CSS/form.css";
 import DatePicker from "react-date-picker";
 import { useNavigate } from "react-router-dom";
 
@@ -91,7 +91,7 @@ const navigate = useNavigate();
 
             {/* Radio button starts */}
             <div>
-              <p>possibility:</p>
+              <h4>possibility:</h4>
               <input
                 type="radio"
                 {...register("possibility")}
@@ -121,7 +121,7 @@ const navigate = useNavigate();
             </div>
 
             <div>
-              <p>schedule Activity :</p>
+              <h4>schedule Activity :</h4>
               <select onChange={(event) => console.log(event.target.value)}>
                 <option {...register("Alert_time")} value="10">
                   Alert before 10 mins

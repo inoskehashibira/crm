@@ -17,7 +17,8 @@ const Page2 = (props) => {
   const onSubmit = (cp_data) => {
     console.log(lead_data);
 
-    cp_data = {...lead_data,...cp_data}
+    // cp_data = {...lead_data,...cp_data}
+    cp_data = { ...lead_data, 'cp_data': cp_data };
     console.log(cp_data)
 
 
@@ -76,7 +77,7 @@ const Page2 = (props) => {
             </div>
 
             <div>
-              <p>Country :</p>
+              <h4>Country :</h4>
               <select onChange={(event) => console.log()}>
                 <option {...register("cp country")} value="bangladesh">
                   bangladesh
@@ -93,7 +94,7 @@ const Page2 = (props) => {
             </div>
 
             <div>
-              <p>City :</p>
+              <h4>City :</h4>
               <select onChange={(event) => console.log()}>
                 <option {...register("cp city")} value="Dhaka">
                   Dhaka
@@ -137,7 +138,7 @@ const Page2 = (props) => {
             </div>
             <h2>Sales Persons Information</h2>
             <div>
-              <p>Salesperson :</p>
+              <h4>Salesperson :</h4>
               <select onChange={(event) => console.log()}>
                 <option {...register("sp name")} value="Person 1">
                   Person 1

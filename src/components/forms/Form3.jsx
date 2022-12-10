@@ -20,10 +20,13 @@ const Page3 = (props) => {
 
   const onSubmit = (MI_data) => {
     console.log(cp_data);
-    MI_data = { ...cp_data, ...MI_data };
+    // MI_data = { ...cp_data, ...MI_data };
+    MI_data = { ...cp_data, 'MI_data': MI_data };
     console.log(MI_data);
 
     ref1.push(MI_data);
+
+    navigate("/Submitted");
     
 
   };
@@ -137,7 +140,7 @@ const Page3 = (props) => {
               <input
                 type="datetime-local"
                 onChange={(e) =>
-                  register("dateTime", { value: e.target.value })
+                  register("Booking validity", { value: e.target.value })
                 }
               ></input>
             </div>
