@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import RBcomp from './com/radioButton';
 import { useState, useEffect } from "react";
 import LeadGenPossibilityRadio from './com/LeadGenPossibilityRadio';
-import {getLeadFormRBoptions} from '../services/export'
+import { getLeadFormRBoptions } from '../services/export'
 
 
 export default function LeadForm() {
@@ -13,17 +13,18 @@ export default function LeadForm() {
   let item = { 'possibility': null };
   const radioButtonOptions = getLeadFormRBoptions();
 
-const handleRadioOptions = (i) =>{
-  console.log(i)
-   item['possibility'] = i;
-  reg = [item,...reg];
+  const handleRadioOptions = (i) => {
+    console.log(i)
+    item['possibility'] = i;
+    reg = [item, ...reg];
 
-};
+  };
 
-const handleChange = (i) => {
+  const handleChange = (i) => {
+    console.log(i.target.value)
 
-  setFormData({...formData, [i.target.id ]: i.target.value})
-};
+    setFormData({ ...formData, [i.target.id]: i.target.value })
+  };
 
 
   const {
@@ -34,10 +35,10 @@ const handleChange = (i) => {
   } = useForm();
 
 
- function onSubmit() {
-   
-   console.log(formData);
- }
+  function onSubmit() {
+
+    console.log(formData);
+  }
 
 
   return (
@@ -46,6 +47,7 @@ const handleChange = (i) => {
         <h1 className="text-center">Lead Generation</h1>
 
         <form className="row g-3" onSubmit={handleSubmit(onSubmit)}>
+
           <div className="col-md-6">
             <label htmlFor="firstName" className="form-label">
               Customer Name
@@ -57,7 +59,7 @@ const handleChange = (i) => {
               id="Customer_Name"
               required
               onChange={handleChange}
-              // value = "abc"
+            // value = "abc"
             ></input>
           </div>
 
@@ -103,7 +105,7 @@ const handleChange = (i) => {
               onChange={handleChange}
             ></input>
           </div>
-          
+
           <div>
             <RBcomp
               OptionList={radioButtonOptions}
@@ -112,9 +114,9 @@ const handleChange = (i) => {
           </div>
 
 
-          <div className="col-md-6">
+          <div className="col-md-4">
             <label htmlFor="firstName" className="form-label">
-              
+              Tag
             </label>
             <input
               type="text"
@@ -125,6 +127,33 @@ const handleChange = (i) => {
               onChange={handleChange}
             ></input>
           </div>
+
+
+          <div>
+            <h4>schedule Activity :</h4>
+            <select className="form-select" onChange={handleChange} id="alterBefore">
+              <option value="10">
+                Alert before 10 mins
+              </option>
+
+              <option value="30">
+                Alert before 30 mins
+              </option>
+
+              <option value="60">
+                Alert before 60 mins
+              </option>
+            </select>
+          </div>
+
+          <div>
+              <input className="m-5"
+                type="time"
+                onChange={handleChange}
+              ></input>
+              <input onChange={handleChange} id="date" type="date"  />
+            </div>
+
 
 
           <div className="col-md-12 mb-5">
