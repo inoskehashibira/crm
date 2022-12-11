@@ -4,12 +4,14 @@ import { useForm } from "react-hook-form";
 import RBcomp from './com/radioButton';
 import { useState, useEffect } from "react";
 import LeadGenPossibilityRadio from './com/LeadGenPossibilityRadio';
+import {getLeadFormRBoptions} from '../services/export'
 
 
 export default function LeadForm() {
   const [formData, setFormData] = useState([]);
   let reg = [];
   let item = { 'possibility': null };
+  const radioButtonOptions = getLeadFormRBoptions();
 
 const handleRadioOptions = (i) =>{
   console.log(i)
@@ -19,23 +21,11 @@ const handleRadioOptions = (i) =>{
 };
 
 const handleChange = (i) => {
-  // console.log(i.target.id);
-  // console.log(i.target.value);
-  // setFormData({[i.target.id ]: i.target.value},...formData);
-  setFormData({...formData, [i.target.id ]: i.target.value})
-  // setValues({ ...values, [name]: value });
-  
 
+  setFormData({...formData, [i.target.id ]: i.target.value})
 };
 
 
-
-
-  const radioButtonOptions = [
-    { id: 1, value: "high" },
-    { id: 2, value: "medium" },
-    { id: 3, value: "low" },
-  ];
   const {
     register,
     handleSubmit,
@@ -44,16 +34,7 @@ const handleChange = (i) => {
   } = useForm();
 
 
-
-  const onSubmit = (lead_data) => {
-     let l = [...item,...lead_data];
-    console.log(l)
-
-    // console.log(lead_data);
-    // console.log(item);
-  };
-
- function onSubmit2(e) {
+ function onSubmit() {
    
    console.log(formData);
  }
@@ -64,7 +45,7 @@ const handleChange = (i) => {
       <div className="container mt-5">
         <h1 className="text-center">Lead Generation</h1>
 
-        <form className="row g-3" onSubmit={handleSubmit(onSubmit2)}>
+        <form className="row g-3" onSubmit={handleSubmit(onSubmit)}>
           <div className="col-md-6">
             <label htmlFor="firstName" className="form-label">
               Customer Name
@@ -76,6 +57,7 @@ const handleChange = (i) => {
               id="Customer_Name"
               required
               onChange={handleChange}
+              // value = "abc"
             ></input>
           </div>
 
@@ -128,6 +110,22 @@ const handleChange = (i) => {
               handleRadioOptions={handleChange}
             ></RBcomp>
           </div>
+
+
+          <div className="col-md-6">
+            <label htmlFor="firstName" className="form-label">
+              
+            </label>
+            <input
+              type="text"
+              // {...register("Organization")}
+              className="form-control"
+              id="Organization"
+              required
+              onChange={handleChange}
+            ></input>
+          </div>
+
 
           <div className="col-md-12 mb-5">
             <button className="btn btn-primary" type="submit">
