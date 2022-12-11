@@ -6,6 +6,9 @@ import Page3 from "./components/forms/Form3";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Main from './components/sales_pipeline/main';
 import Submitted from './components/forms/Submitted';
+import TestForm from './components/forms/TestForm';
+import LeadForm from './components/forms/LeadForm';
+import Tester from './components/forms/com/Tester';
 function App() {
   return (
     // <div className="App">
@@ -21,6 +24,9 @@ function App() {
         <Route exact path="/Page3" element={<Page3 />} />
         <Route exact path="/Submitted" element={<Submitted />} />
         <Route exact path="/pipeline" element={<Main />} />
+        <Route exact path="/TestForm" element={<TestForm />} />
+        <Route exact path="/l1" element={<LeadForm />} />
+        <Route exact path="TESTER" element={<Tester />} />
       </Routes>
     </BrowserRouter>
   );
