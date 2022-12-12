@@ -9,6 +9,7 @@ import Submitted from './components/forms/Submitted';
 import TestForm from './components/forms/TestForm';
 import LeadForm from './components/forms/LeadForm';
 import Tester from './components/forms/com/Tester';
+import ContactPersonInfo from './components/forms/contactPersonInfo';
 function App() {
   return (
     // <div className="App">
@@ -26,6 +27,7 @@ function App() {
         <Route exact path="/pipeline" element={<Main />} />
         <Route exact path="/TestForm" element={<TestForm />} />
         <Route exact path="/l1" element={<LeadForm />} />
+        <Route exact path="/l2" element={<ContactPersonInfo />} />
         <Route exact path="TESTER" element={<Tester />} />
       </Routes>
     </BrowserRouter>

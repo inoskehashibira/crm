@@ -1,19 +1,10 @@
 import React from 'react'
-import { useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
-import RBcomp from './com/radioButton';
 import { useState, useEffect } from "react";
-import LeadGenPossibilityRadio from './com/LeadGenPossibilityRadio';
-import { getdropdownlist, getLeadFormRBoptions } from '../services/export'
-import InputData from './com/InputData';
-import DropDown from './com/DropDown';
+import { useForm } from "react-hook-form";
+export default function ContactPersonInfo() {
 
-
-export default function LeadForm() {
   const [formData, setFormData] = useState([]);
 
-  const radioButtonOptions = getLeadFormRBoptions();
-  const dropDownItems = getdropdownlist();
 
 
   const handleChange = (i) => {
@@ -37,16 +28,17 @@ export default function LeadForm() {
   }
 
 
+
   return (
     <div className="col-md-6 m-5 border border-success rounded shadow p-2 mx-auto">
       <div className="container mt-5">
-        <h1 className="text-center">Lead Generation</h1>
+        <h1 className="text-center">Contact Person's Information</h1>
 
         <form className="row g-3" onSubmit={handleSubmit(onSubmit)}>
 
-          <InputData handleChange={handleChange}></InputData>
+          
 
-          {/* <div className="col-md-6">
+          <div className="col-md-6">
             <label htmlFor="firstName" className="form-label">
               Customer Name
             </label>
@@ -59,7 +51,7 @@ export default function LeadForm() {
               onChange={handleChange}
             // value = "abc"
             ></input>
-          </div> */}
+          </div>
 
           <div className="col-md-6">
             <label htmlFor="firstName" className="form-label">
@@ -104,12 +96,12 @@ export default function LeadForm() {
             ></input>
           </div>
 
-          <div>
+          {/* <div>
             <RBcomp
               OptionList={radioButtonOptions}
               handleRadioOptions={handleChange}
             ></RBcomp>
-          </div>
+          </div> */}
 
 
           <div className="col-md-4">
@@ -182,5 +174,5 @@ export default function LeadForm() {
         </form>
       </div>
     </div>
-  );
+  )
 }
